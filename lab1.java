@@ -11,6 +11,7 @@ public class lab1{
         String output_name = args[3];
         int[][] elev = new int[500][395];
         Queue<int[]> toVisit = new LinkedList<int[]>();
+        Pixel[][] map = new Pixel[500][395];
         int path_length = 0;
 
         try {
@@ -28,6 +29,17 @@ public class lab1{
             }
             elevSC.close(); 
 
+            for(int i = 0; i < 500; i++){
+                for(int j = 0; j < 395; j++){
+                    map[i][j] = new Pixel(i, j, elev[i][j], terrain.getRGB(i,j));
+                }
+            }
+            for(int i = 0; i < 500; i++){
+                for(int j = 0; j < 395; j++){
+                    map[i][j].fillNBS(map);
+                }
+            }
+
             File path_file = new File(args[2]);
             Scanner pathSC = new Scanner(path_file);
             while(pathSC.hasNextLine()){
@@ -44,12 +56,29 @@ public class lab1{
             e.printStackTrace();
         }
 
+        final int open_land = -486382; //dark orange
+        final int rough_meadow = -16384; //light orange
+        final int easy_movement_forest = -1; //white
+        final int slow_run_forest = -16592836; //light green
+        final int walk_forest = -16611288; //green
+        final int impassible_vegetation = -16430824; //dark green
+        final int lake = -16776961; //blue 
+        final int paved_road = -12111101; //brown
+        final int footpath = -16777216; //black
+        final int out_of_bounds = -3342235; //magenta
+
+        int[] startCoords = toVisit.remove();
+        while(!toVisit.isEmpty()){
+            
+        }
+
+        /* 
         BufferedImage out = terrain;
 
         File output = new File(output_name);
         ImageIO.write(out, "png", output);
         output.createNewFile();
         System.out.println(path_length);
-
+        */
     }
 }
