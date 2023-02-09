@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch lab1",
+            "request": "launch",
+            "mainClass": "lab1",
+            "projectName": "LAB1_e3827688",
+            "args": ["./testcases/distanceCalcX/terrain.png", "./testcases/distanceCalcX/mpp.txt", "./testcases/distanceCalcX/path.txt", "output.png"]
+        }
+    ]
+}
